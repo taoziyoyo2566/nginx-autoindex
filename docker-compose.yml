@@ -1,0 +1,10 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-autoindex
+    ports:
+      - "1080:80"
+    volumes:
+      - ./files:/usr/share/nginx/html/files/
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    restart: unless-stopped
